@@ -27,8 +27,7 @@ public class CountWords {
         Map<String, Integer> result = new LinkedHashMap<>();
         for (String value : input) {
             int count = result.getOrDefault(value, 0);
-            count++;
-            result.put(value, count);
+            result.put(value,++count);
         }
         return result;
     }
