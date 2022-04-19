@@ -15,9 +15,10 @@ public class SinglyLinkedList<T> { // implements Iterable<T>
         list.add("E");
         list.add("F");
         list.add("H");
-//        System.out.println("2-" + list.get(2));
-//        System.out.println("0-" + list.get(0));
-//        list.remove(1); // удалили B
+        System.out.println("2-" + list.get(2));
+        System.out.println("0-" + list.get(0));
+        list.remove(1); // удалили B
+        list.remove(0); // удалили A
         System.out.println(list);
         list.invert();
         System.out.println(list);
@@ -37,8 +38,8 @@ public class SinglyLinkedList<T> { // implements Iterable<T>
 
             node.next = prev;
         }
-        head.next = null;
         tail = head;
+        tail.next = null;
         head = node;
     }
 
