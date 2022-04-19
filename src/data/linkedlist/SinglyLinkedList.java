@@ -5,17 +5,41 @@ package data.linkedlist;
  *
  * @author Vladimir Ivanov (ivanov.vladimir.l@gmail.com)
  */
-public class SinglyLinkedList<T> {
+public class SinglyLinkedList<T> { // implements Iterable<T>
     public static void main(String[] args) {
         SinglyLinkedList<String> list = new SinglyLinkedList<>();
         list.add("A");
         list.add("B");
         list.add("C");
         list.add("D");
-        System.out.println("2-" + list.get(2));
-        System.out.println("0-" + list.get(0));
-        list.remove(1); // удалили B
+        list.add("E");
+        list.add("F");
+        list.add("H");
+//        System.out.println("2-" + list.get(2));
+//        System.out.println("0-" + list.get(0));
+//        list.remove(1); // удалили B
         System.out.println(list);
+        list.invert();
+        System.out.println(list);
+    }
+
+    public void invert() {
+        if (head == null) {
+            return;
+        }
+        Node<T> prev = null;
+        Node<T> node = head;
+        Node<T> next = head.next;
+        while (next != null) {
+            prev = node;
+            node = next;
+            next = node.next;
+
+            node.next = prev;
+        }
+        head.next = null;
+        tail = head;
+        head = node;
     }
 
     private Node<T> head = null;
